@@ -17,23 +17,23 @@
 -	classic : 2nd order optimization, not work in large NN
 -	***few methods*** : no limit
 
-## 1. Itroduction
+## 1 Itroduction
 
 -	back-prop : NN learning algorithm
 	-	cuz : simple concept, efficient computation, often works
 -	arbitrary choice : \# of nodes, layers, learning rates, train/test set
 
-## 2. Learning and Generalization
+## 2 Learning and Generalization
 
 - ![fig01](fig01.JPG)
 
-## 3. Standard Backpropagation
+## 3 Standard Backpropagation
 
 - ![equation01](equation01.JPG)
 - ![equation02](equation02.JPG)
 - ![equation03](equation03.JPG)
 
-## 4. A Few Practical Tricks
+## 4 A Few Practical Tricks
 
 - back-prop disadvantage : slow
 - why? cost surface is non-quadratic, non-convex, n-D => local min / flat region
@@ -42,7 +42,7 @@
 	2. convergence is swift
 	3. convergence occurs at all
 
-### 4.1 Stochastic VS Batch learning
+### 4-1 Stochastic VS Batch learning
 
 - advantage of SGD
 	1. fast
@@ -53,13 +53,13 @@
 	2. many acc tech (eg. conjugate gradient)
 	3. theoretical analysis of the weight dynamics and convergence rates are simpler
 
-### 4.2 Shuffling the Examples
+### 4-2 Shuffling the Examples
 
 - choose examples w/ max info content
 	1. shuffle the training set => training examples never belong to same class
 	2. input examples often create large error than small
 
-### 4.3 Normalizing the Inputs
+### 4-3 Normalizing the Inputs
 
 - transforming the inputs
 	1. mean of each input variable in train-set => 0
@@ -67,7 +67,7 @@
 	3. uncorrelated
 - ![fig03](fig03.JPG)
 
-### 4.4 The Sigmoid
+### 4-4 The Sigmoid
 
 1. sigmoid/tanh (symmetric) : converge faster than logit
 	- [Generalization and network design strategies, Y.LeCun]()
@@ -75,11 +75,27 @@
 	- tanh : computationally expensive
 3. stimes, add linear term : eg) $`f(x)=\tanh(x)+ax`$
 
-### 4.5 Choosing Target Values
+### 4-5 Choosing Target Values
 
-### 4.6 Initializing the weights
+- binary target problem
+	1. instablility : $`W\rightarrow \infty`$, where $`\partial S \rightarrow 0`$ (S=sigmoid)
+	2. if input falls near a decision boundary, output should be two values
+- set target to be within range of sigmoid rather than asymptotic value
+
+### 4-6 Initializing the weights
+
+- warning
+	- if all W are large, sigmoid results small gradient that making learning slow
+	- if very small, also gradient will be very small
+- normalizing to sd 1, output of each nodes, before activation function
 
 ### 4.7 Choosing Learning rates
+
+- give each weight its own learning rate
+- lr should be proportional to the sqrt of the # of inputs to the unit
+- weights in lower layers should typically be larger than in the higher layers
+
+#### adaptive learning rate
 
 ### 4.8 Radical Basis Functions vs Sigmoid Units
 
@@ -126,15 +142,15 @@
 ## 10. Discussion and conclusion
 
 -	tricks
-	1.	[shuffle the examples](#4.2-Shuffling-the-Examples)
-	2.	[normalizing](#4.3-Normalizing-the-Inputs)
+	1.	[shuffle the examples](#4-2-shuffling-the-examples)
+	2.	[normalizing](#4-3-normalizing-the-inputs)
 		- centering : the input variables by subtracting the mean
 		- $`\sigma = 1`$ : normalize the input variable to a standard deviation of 1
 		- decorrelate : (if possible)
-	3.	[sigmoid](#4.4-The-Sigmoid) : w/ NN
+	3.	[sigmoid](#4-4-the-sigmoid) : w/ NN
 		- ![pick a network with the sigmoid function](fig04.JPG)
-	7.	$`-1\le target\le 1`$[link](#4.5-Choosing-Target-Values) : set target values within sigmoid range
-	8.	[init W to rv](#4.6-Initializing-the-weights)
+	7.	$`-1\le target\le 1`$[link](#4-5-choosing-target-values) : set target values within sigmoid range
+	8.	[init W to rv](#4-6-initializing-the-weights)
 
 - training method
 	1.	SGD w/ careful tuning | stochastic diagonal Levenberg Marquardt method : if classification & huge data (what's mean redundant?)
