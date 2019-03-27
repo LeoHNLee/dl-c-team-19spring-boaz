@@ -48,15 +48,21 @@ ch-1 introduction
 
 #### sss-1-2-1 Gradient
 
-![gradient](https://i.imgur.com/9EEoCry.jpg) - 각 변수로의 일차 편미분 값으로 구성되는 벡터 - f의 값이 가장 가파르게 증가하는 방향 - 벡터의 크기 : 가파른 정도
+![gradient](https://i.imgur.com/9EEoCry.jpg)
+
+-	각 변수로의 일차 편미분 값으로 구성되는 벡터 - f의 값이 가장 가파르게 증가하는 방향 - 벡터의 크기 : 가파른 정도
 
 #### sss-1-2-2 Jacobian
 
-![jacobian](https://i.imgur.com/GRIGPNU.jpg) - 어떤 다변수 벡터함수(vector-valued function of multiple variables)에 대한 일차 미분
+![jacobian](https://i.imgur.com/GRIGPNU.jpg)
+
+-	어떤 다변수 벡터함수(vector-valued function of multiple variables)에 대한 일차 미분
 
 #### sss-1-2-3 Hessian
 
-![hessian](https://i.imgur.com/tgTO1DN.jpg) - 함수의 곡률(curvature) 특성을 나타내는 행렬로 함수의 이차 미분 - 어떤 함수의 critical point에서 계산한
+![hessian](https://i.imgur.com/tgTO1DN.jpg)
+
+-	함수의 곡률(curvature) 특성을 나타내는 행렬로 함수의 이차 미분 - 어떤 함수의 critical point에서 계산한
 
 ### ss-1-3 전반적 내용 설명
 
